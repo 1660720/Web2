@@ -1,6 +1,6 @@
 <div class="card shadow">
   <h5 class="card-header">
-    Product
+    Chi Tiết Bài Viết
   </h5>
   <div class="card-body">
     {{#if this.error}}
@@ -13,13 +13,14 @@
       <img src="/imgs/sp/{{ProID}}/main.jpg" alt="{{ProName}}" class="card-img-top">
       <div class="card-body">
         <h2 class="card-title">{{ProName}}</h2>
-        <p class="card-text" >Chuyên mục:<a   href="#">{{category}} </a></p>
+          <p style="color:steelblue"  > Chuyên mục <a href="/categories/{{CatID}}/products">{{CatID}}</a> </p>
         <p class="card-text">Ngày đăng: {{date}}</p>
         <p class="card-text">
           {{{FullDes}}}
         </p>
+        <p class="card-text" >Tag:<a   href="#">{{Tag}} </a></p>
         
-        <
+        
       </div>
     </div>
     {{/with}}

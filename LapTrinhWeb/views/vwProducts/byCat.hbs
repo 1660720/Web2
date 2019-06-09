@@ -8,17 +8,18 @@
     {{else}}
     <div class="row">
       {{#each this.products}}
-      <div class="col-sm-4 mb-4">
+      <div class="col-sm-4 mb-9">
         <div class="card h-100 shadow-sm">
-          <img src="/imgs/sp/{{ProID}}/main_thumbs.jpg" class="card-img-top" alt="{{ProName}}" title="{{ProName}}">
+          <img src="/imgs/sp/{{ProID}}/main_thumbs.jpg" class="card-img-top"  alt="{{ProName}}" title="{{ProName}}">
           <div class="card-body">
             <h5 class="card-title" style="color:blue" ><a href="/products/{{ProID}}">{{ProName}}</a></h5>
-        <p class="card-text" >Chuyên mục:<a   href="#">{{category}}</a> </p>
-          
-            <p class="card-text">Ngày đăng: {{date}}</p>
+        <p style="color:steelblue"  > Chuyên mục <a href="/categories/{{CatID}}/products">{{CatID}}</a> </p>
+            <small class="card-text">Ngày đăng: {{date}}</small>
             <p class="card-text">
               {{TinyDes}}
             </p>
+        <small class="card-text" >Tag:<a   href="#">{{Tag}}</a> </small>
+
           </div>
           
         </div>
@@ -26,7 +27,7 @@
       {{/each}}
     </div>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-9">
         <nav aria-label="Page navigation">
           <ul class="pagination justify-content-center">
             <li class="page-item disabled">

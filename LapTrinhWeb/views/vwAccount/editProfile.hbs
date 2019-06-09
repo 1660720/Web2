@@ -1,0 +1,25 @@
+{{#each this.editprofile}}
+<form method="POST">
+  <div class="form-group">
+    <label for="exampleInputUsername ">username </label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="f_Username"
+    value="{{f_Username}}" placeholder="Enter username">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputname ">Name </label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="f_Name" 
+    value="{{f_Name}}" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputemail ">email </label>
+    <input type="email" class="form-control" id="exampleInputEmail1" name="f_Email" 
+    value="{{f_Email}}" placeholder="Enter email">
+  </div>
+  {{!-- <div class="form-group">
+    <label for="exampleInputdate ">date </label>
+    <input type="email" class="form-control" id="exampleInputEmail1" name="f_DOB" placeholder="Enter DOB">
+  </div> --}}
+  
+  <button type="submit" class="btn btn-primary">Cập nhật</button>
+</form>
+{{/each}}

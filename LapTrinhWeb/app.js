@@ -34,13 +34,21 @@ require('./middlewares/passport')(app);
 
 app.use(require('./middlewares/auth.mdw'));
 app.use(require('./middlewares/category.mdw'));
+app.use(require('./middlewares/top10baiviet.mdw'));
+app.use(require('./middlewares/top10view.mdw'));
+app.use(require('./middlewares/top4noibat.mdw'));
+app.use(require('./middlewares/top10chuyenmuc.mdw'));
+app.use(require('./middlewares/show.mdw'));
+
+
+
 
 app.use('/categories', require('./routes/categories'));
 app.use('/products', require('./routes/products'));
 app.use('/account', require('./routes/account'));
 
 app.get('/', (req, res) => {
-  // res.end('hello express');
+  
   res.render('home');
 })
 

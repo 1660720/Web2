@@ -11,8 +11,8 @@
   {{{_sections.css}}}
 </head>
 
-<body>
-
+<body >
+   
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
     <a class="navbar-brand" href="#">
       <i class="fa fa-home fa-lg" aria-hidden="true"></i>
@@ -25,13 +25,36 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="categories/1/products">Nông Sản</a>
+          <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Nông sản
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/categories/1/products">Lúa</a>
+    <a class="dropdown-item" href="/categories/2/products">Cà phê</a>
+    <a class="dropdown-item" href="/categories/3/products">Cao su</a>
+    <a class="dropdown-item" href="/categories/4/products">Hồ tiêu</a>
+    <a class="dropdown-item" href="/categories/5/products">Trái cây</a>
+    <a class="dropdown-item" href="/categories/6/products">Dừa</a>
+  </div>
+</div>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="#">Hải Sản</a>
+          <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Hải sản
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/categories/7/products">Hải sản biển</a>
+    <a class="dropdown-item" href="/categories/8/products">Tôm cá trong nước </a>
+    <a class="dropdown-item" href="/categories/9/products">Thị trường</a>
+    <a class="dropdown-item" href="/categories/10/products">Ngư dân</a>
+
+  </div>
+</div>
         </li>
         <li>
           <form class="form-inline my-2 my-lg-0">
@@ -40,7 +63,7 @@
       </form> 
         </li>
         
-      </ul>
+      </div>
       
 
       <form id="frmLogout" action="/account/logout" method="POST"></form>
@@ -52,7 +75,7 @@
             Xin chào, <strong>{{authUser.f_Name}}</strong>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/account/profile">
+            <a class="dropdown-item" href="/account/profile/{{authUser.f_ID}}">
               <i class="fa fa-user" aria-hidden="true"></i>
               Thông tin tài khoản
             </a>
@@ -81,13 +104,12 @@
       <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
     </div>
   </div> --}}
-
   <div class="container-fluid mt-4">
     <div class="row">
       <div class="col-sm-3">
         <div class="card shadow">
           <h5 class="card-header">
-            Categories
+            Tất cả chuyên mục
           </h5>
           <div class="list-group">
             {{#each lcCategories}}
@@ -103,12 +125,25 @@
         </div>
         <div class="card shadow mt-3">
           <div class="card-header">
-            Featured
+            <strong>NỔI BẬT TRONG TUẦN</strong>
           </div>
           <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+          
+            {{#each lcTop4noibat }}
+<div class="card col-sm-16 mb-0 " style="width: 16rem;">
+  <img width="250" src="/imgs/sp/{{ProID}}/main_thumbs.jpg" class="card-img-top">
+  <div class="card-body">
+    <div>-
+    <h2 style="color:steelblue"  ><a href="/products/{{ProID}}">{{ProName}}</a></h2>
+   <p style="color:steelblue"  > Chuyên mục <a href="/categories/{{CatID}}/products">{{CatName}}</a> </p>
+      <p>{{date}}</p>
+  
+
+    </div>
+    
+  </div>
+</div>
+{{/each}}
           </div>
         </div>
       </div>
@@ -116,8 +151,7 @@
         {{{body}}}
       </div>
     </div>
-
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    {{!-- <footer class="pt-4 my-md-5 pt-md-5 border-top">
       <div class="row">
         <div class="col-12 col-md">
           <img class="mb-2" src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="24"
@@ -125,37 +159,25 @@
           <small class="d-block mb-3 text-muted">© 2017-2019</small>
         </div>
         <div class="col-6 col-md">
-          <h5>Features</h5>
+          <h5>Sinh Viên</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Cool stuff</a></li>
-            <li><a class="text-muted" href="#">Random feature</a></li>
-            <li><a class="text-muted" href="#">Team feature</a></li>
-            <li><a class="text-muted" href="#">Stuff for developers</a></li>
-            <li><a class="text-muted" href="#">Another one</a></li>
-            <li><a class="text-muted" href="#">Last time</a></li>
+            <li><a class="text-muted" href="#">1660720</a></li>
+            <li><a class="text-muted" href="#">Phan Quốc Việt</a></li>
+            
           </ul>
         </div>
         <div class="col-6 col-md">
-          <h5>Resources</h5>
+          <h5>Sinh Viên </h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Resource</a></li>
-            <li><a class="text-muted" href="#">Resource name</a></li>
-            <li><a class="text-muted" href="#">Another resource</a></li>
-            <li><a class="text-muted" href="#">Final resource</a></li>
+            <li><a class="text-muted" href="#">1660737</a></li>
+            <li><a class="text-muted" href="#">Lê Đình Ca Vũ</a></li>
+           
           </ul>
         </div>
-        <div class="col-6 col-md">
-          <h5>About</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Team</a></li>
-            <li><a class="text-muted" href="#">Locations</a></li>
-            <li><a class="text-muted" href="#">Privacy</a></li>
-            <li><a class="text-muted" href="#">Terms</a></li>
-          </ul>
-        </div>
+       
       </div>
-    </footer>
-  </div>
+    </footer>--}}
+  </div> 
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

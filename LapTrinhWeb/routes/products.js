@@ -2,13 +2,21 @@ var express = require('express');
 var productModel = require('../models/product.model');
 
 var router = express.Router();
-
+router.get('/', (req, res, next) => {
+  product.Model.all()
+    .then(rows => {
+      res.render('/', {
+        categories: rows
+      });
+    }).catch(next);
+})
 router.get('/:id', (req, res, next) => {
   var id = req.params.id;
   if (isNaN(id)) {
     res.render('vwProducts/detail', { error: true });
     return;
-  }
+  };
+  
 
   productModel.single(id)
     .then(rows => {

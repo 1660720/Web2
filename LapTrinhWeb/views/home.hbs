@@ -1,11 +1,74 @@
-<div class="card h-100 shadow">
-  <h5 class="card-header">
-    Express App: Home
-  </h5>
+<style>
+  body{
+    background: url("/imgs/background.jpg")
+  
+  }
+</style>
+  <div class="card shadow">
+  <h4><strong class="card-header">
+   THỊNH HÀNH
+  </strong>
+  </h4>
+    <div class="row" style="width:" >
+      {{#each lcTop10view }}
+<div class="card col-sm-4 mb-0 " style="width: 16rem;">
+  <img width="250" src="/imgs/sp/{{ProID}}/main_thumbs.jpg" class="card-img-top">
   <div class="card-body">
+    <div>-
+    <h2 style="color:steelblue"  ><a href="/products/{{ProID}}">{{ProName}}</a></h2>
+   <p style="color:steelblue"  > Chuyên mục <a href="/categories/{{CatID}}/products">{{CatName}}</a> </p>
+   
+      <p>{{date}}</p>
+  
+    </div>
     
   </div>
-  <div class="card-footer text-muted">
-    Footer
+</div>
+{{/each}}
+
+    </div>
+
+<div class="card shadow">
+  <h5 class="card-header">
+  <strong>TIN MỚI</strong>
+  </h5>
+    <div class="row" style="width:" >
+      {{#each lcTop10baiviettime }}
+<div class="card col-sm-4 mb-0 " style="width: 16rem;">
+  <img width="250" src="/imgs/sp/{{ProID}}/main_thumbs.jpg" class="card-img-top">
+  <div class="card-body">
+    <div>-
+  <h2 style="color:steelblue"  ><a href="/products/{{ProID}}">{{ProName}}</a></h2>
+   <p style="color:steelblue"  > Chuyên mục <a href="/categories/{{CatID}}/products">{{CatName}}</a> </p>
+
+      <p>{{date}}</p>
+  
+    </div>
+    
   </div>
 </div>
+{{/each}}
+    </div>
+     
+    <div class="card shadow">
+  <h5 class="card-header">
+    Chuyên mục - Bài viết mới
+  </h5>
+    <div class="row" style="width:" >
+      {{#each lcTop10chuyenmuc }}
+<div class="card col-sm-4 mb-0 " style="width: 16rem;">
+  <img width="250" src="/imgs/sp/{{ProID}}/main_thumbs.jpg" class="card-img-top">
+  <div class="card-body">
+    <div>-
+ <h2 style="color:steelblue"  ><a href="/products/{{ProID}}">{{ProName}}</a></h2>
+   <p style="color:steelblue"  > Chuyên mục <a href="/categories/{{CatID}}/products">{{CatName}}</a> </p>
+    
+      <p>{{date}}</p>
+  
+    </div>
+    
+  </div>
+</div>
+{{/each}}
+    </div>
+  

@@ -72,8 +72,37 @@ router.post('/logout', restricted, (req, res, next) => {
   res.redirect('/account/login');
 })
 
-router.get('/profile', restricted, (req, res, next) => {
-  res.end('PROFILE');
-})
+router.get('/profile/:id', restricted, (req, res, next) => {
+  var id = req.params.id;
+  userModel.single(id).then(rows =>{
+    res.render('vwAccount/profile',{error:false,profile:rows});
+
+  }).catch(next);
+
+
+}),
+router.get('/editProfile/:id', restricted, (req, res, next) => {
+  var id = req.params.id;
+ userModel.single(id).then(rows =>{
+     res.render('vwAccount/editProfile',{error:false, editprofile:rows});
+ 
+ }).catch(next);
+ 
+ 
+ })
+
+ router.post('/editProfile/:id', restricted, (req, res, next) => {
+  var id = req.params.id;
+ var entity = req.body;
+var t = id;
+ userModel.update(entity, t).then(id =>
+  {
+    res.redirect(`/account/profile/${t}`);
+  })
+ 
+ 
+ })
+
+
 
 module.exports = router;

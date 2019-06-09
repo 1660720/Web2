@@ -1,0 +1,16 @@
+{{#each this.profile}}
+    <div class="card" style="width: 18rem;">
+  <img src="/imgs/avatar.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h1>ID :<a class="card-text" style="color: slateblue">{{f_ID}}</a></h1>
+    <strong> USERNAME: <a class="card-text">{{f_Username}}</a></strong><hr>
+    <strong>TÊN: <p class="card-text">{{f_Name}}</p></strong><hr>
+    <strong>EMAIL: <p class="card-text">{{f_Email}}</p></strong><hr>
+    <strong>NGÀY SINH: <p class="card-text">{{f_DOB}}</p></strong>
+<a class="btn btn-primary" href="/account/editProfile/{{f_ID}}" role="button">Thay đổi</a>
+
+
+
+  </div>
+</div>
+{{/each}}

@@ -3,9 +3,9 @@ var config = require('../config/default.json');
 
 module.exports = {
   all: () => {
-    return db.load('select * from products');
+    return db.load('select * from products p join categories c on c.CatID = p.CatID');
   },
-
+  
   allByCat: catId => {
     return db.load(`select * from products where CatID = ${catId}`);
   },
@@ -35,5 +35,20 @@ module.exports = {
 
   delete: id => {
     return db.delete('products', 'ProID', id);
-  }
+  }, 
+  show:() =>{
+    return db.load(`select* from products p join categories c on c.CatID = p.CatID Group by p.CatID DESC limit 5`)
+  },
+  Top10baiviet:() =>{
+    return db.load(`select* from products p join categories c on c.CatID = p.CatID order by p.date DESC limit 10`)
+  },
+  Top10view:() =>{
+    return db.load(`select* from products p join categories c on c.CatID = p.CatID order by p.view DESC limit 10`)
+  },
+  Top4noibat:() =>{
+    return db.load(`select* from products p join categories c on c.CatID = p.CatID order by p.view DESC limit 3`)
+  },
+  Top10chuyenmuc:() =>{
+    return db.load(`select* from products p join categories c on c.CatID = p.CatID group by p.CatID order by p.date DESC limit 10 `)
+  },
 };

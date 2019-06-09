@@ -64,6 +64,7 @@ router.get('/:id/products', (req, res, next) => {
     res.render('vwProducts/byCat', { error: true });
     return;
   }
+  
 
   var limit = config.paginate.default;
   var page = req.query.page || 1;
